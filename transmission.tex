@@ -1,0 +1,75 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\subsection{Transmission}
+\subsubsection{Calculs des rapports de vitesse}
+\label{sec:transm}
+Afin de savoir à quelle vitesse le conducteur peut tourner, il faut s'intéresser au rapport de vitesse entre le pédalage et le conducteur. Pour ce faire, la première étape est de déterminer expérimentalement (à l'aide d'un fréquence-mètre) la fréquence de pédalage la plus efficace et confortable. Celle-ci est environ de \SI{1,5} tours par seconde, soit \SI{3\pi}{rad\per\second}. Appelons cette valeur $\omega_{1}$.
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=14cm]{transmission.eps} %ou image.png, .jpeg etc.
+	\caption{\small Schéma de la transmission} %la légende
+	\label{trans} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+Pour plus de précision dans les notations, le tableau ci-dessous reprend les différents éléments de la transmission ainsi que leurs caractéristiques.
+Comme sur un vélo classique, le plateau $t_{1}$ est relié par une chaîne au pignon $t_{2}$. Une autre chaîne relie le pignon $t_{2}'$ au pignon $t_{3}$, attaché sur une tige filetée située à l'arrière du vélo, sur laquelle est fixé le conducteur. (Voir Figures \ref{fig:tige} et \ref{fig:chaine})
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline nom & type & vitesse angulaire & rayon & vitesse à l'extrémité \\
+	\hline $t_{1}$ & plateau & $\omega_{1}$ & $r_{1}$ & $v_{1}=\omega_{1}.r_{1}$ \\
+	\hline $t_{2}$ & pignon & $\omega_{2}$ & $r_{2}$ & $v_{2}=\omega_{2}.r_{2}$ \\
+	\hline $t_{2}'$ & pignon & $\omega_{2}$ & $r_{2}'$ & $v_{2}'=\omega_{2}.r_{2}'$ \\
+	\hline $t_{3}$ & pignon & $\omega_{3}$ & $r_{3}$ & $v_{3}=\omega_{3}.r_{3}$ \\
+	\hline $t_{3}'$ & conducteur & $\omega_{3}$ & $r_{3}'$ & $v_{3}'=\omega_{3}.r_{3}'$ \\
+	\hline
+\end{tabular}
+\caption{\label{tab:pignons} Récapitulatif des pignons}
+\end{center}
+\end{table}
+
+La vitesse à l'extrémité du plateau ($t_{1}$) est donnée par~: 
+\begin{equation*}
+v_{1} = \omega_{1} r_{1}.
+\end{equation*}
+Or la vitesse à l'extrémité de $t_{1}$ est la même que celle à l'extrémité de $t_{2}$~:
+\begin{equation*}
+\omega_{1} r_{1} = \omega_{2}r_{2} \Leftrightarrow \omega_{2} = \frac{ \omega_{1}r_{1}}{r_{2}}.
+\end{equation*}
+Les vitesses angulaires $\omega_{2}$ et $\omega'_{2}$ sont identiques, donc~:
+\begin{equation*}
+v'_{2} = \omega_{2}  r'_{2} \Leftrightarrow v'_{2} = \frac{ \omega_{1}r_{1}r'_{2}}{r_{2}}.
+\end{equation*}
+Comme $v_{3}$, la vitesse à l'extrémité de $t_{3}$, est la même que $v'_{2}$ on a:
+\begin{equation*}
+	\frac{ \omega_{1} r_{1}.r'_{2}}{r_{2}} =  \omega_{3}r_{3} \Leftrightarrow \omega_{3} =\frac{ \omega_{1} r_{1} r'_{2}}{r_{2} r_{3}}.
+\end{equation*}
+La vitesse $v'_{3}$ du conducteur $t'_{3}$ vaut donc~:
+\begin{equation*} 
+v'_{3} = \frac{ \omega_{1} r_{1} r'_{2}}{r_{2} r_{3}} r'_{3}.
+\end{equation*}
+On a donc finalement la vitesse du conducteur liée à la vitesse angulaire $\omega_{1}$ et aux différents rayons des pignons.
+Faisons apparaître les rapports $\frac{r_{1}}{r_{3}}$ et $\frac{r_{2}}{r'_{2}}$ dans la relation~:
+\begin{equation}
+\label{eq:vitessefinale}
+v'_{3} = \omega_{1} \left( \frac{r_{1}}{r_{3}} \right)  \left( \frac{r'_{2}}{r_{2}}\right)  r'_{3},
+\end{equation}
+où $\frac{r_{1}}{r_{3}}$ et $\frac{r'_{2}}{r_{2}}$ sont égaux aux rapports des dents sur chacun des pignons et où $r'_{3}$ est le rayon du conducteur. En utilisant les rapports les plus longs du vélo, la vitesse du conducteur devient~:
+\begin{equation*}
+v'_{3} = 3\pi\, \left( \frac{42}{16} \right) \, \left( \frac{30}{14}\right) \, 0,07 = \num{3,7} \Unit{m.s^-1}.
+\end{equation*}
+\subsubsection{Force appliquée sur les pédales}
+La force appliquée sur les pédales n'est autre que~:
+$$F = \frac{P}{v},$$
+où $P$ est la puissance ($[P]=\Unit{W}$) et $v$ est la vitesse de pédalage (vitesse à l'extrémité des manivelles, où $[v]=\Unit{m.s^{-1}}$).
+La vitesse angulaire de pédalage étant $\omega_{1}=3\, \pi \, \Unit{rad.s^{-1}}$ et la longueur de la manivelle $l=\num{0,17}\Unit{m}$, 
+la vitesse $v$ est donc de~:
+\begin{equation*}
+v = \omega_{1} l = 3\, \pi \, \num{0,17} = \num{1,60} \Unit{m s^{-1}}.
+\end{equation*}
+La force que l'utilisateur doit appliquer sur les pédales est alors de~:
+\begin{equation*}
+\frac{250}{1,60} = \num{156,25} \Unit{N}.
+\end{equation*}
+Cette valeur obtenue de la force rentre parfaitement dans les plages décrites par R. Leca \cite{pedale} à propos des capacités humaines.

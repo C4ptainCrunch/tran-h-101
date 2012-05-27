@@ -1,0 +1,58 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\subsection{Pertes}
+
+Maintenant que la valeur expérimentale de la force de freinage est établie, il reste à caractériser les pertes de l'ergomètre ainsi qu'à calculer son rendement.
+
+Tout d'abord, les pertes possibles doivent être identifiées puis le(s) rendement(s) de notre ergomètre doivent être mesurés.
+Il y a deux catégories de pertes, les pertes thermiques et les pertes mécaniques.
+Comme pertes mécaniques, trois principales ont été identifiées~:
+\begin{itemize}
+\item frottement de l'axe sur le bord de la cuve,
+\item frottement dans la chaîne,
+\item frottement dans les mécanismes du vélo.
+\end{itemize}
+Heureusement, à part la première, toutes celles-ci sont mesurables grâce à l'appareil de mesure décrit à la section~\ref{sec:mesure}, bien que les pertes doivent être soustraites dans l'appareil de mesure lui-même (le frottement de l'axe sur le bord de la cuve étant présent lors des mesures, il ne peut pas être pris en compte) et ajouter les forces de frottement n'apparaissant dans le vélo que lorsque la structure est sous tension.
+
+Deuxièmement, les pertes thermiques ont été analysées. Les principales pertes se font par~:
+\begin{itemize}
+\item les parois de la cuve,
+\item le disque/conducteur (puis via l'axe)
+\item échange avec l'air ambiant via les ouvertures du haut du caisson
+\end{itemize}
+Afin de mesurer ces pertes, la cuve a été remplie d'eau chaude à 42°C,  puis elle a été placée dans l'ergomètre et la diminution de la température de l'eau a été mesurée. La conclusion de cette expérience fut que, si la température de l'eau est 25°C plus haute que la température extérieure, au plus 1°C par quart d'heure est perdu.
+
+
+\subsection{Rendement}
+Le rendement est défini comme étant la puissance utile divisée par la puissance totale $\eta_{tot}=\frac{P_{utile}}{P}$. Ici, il est égal à $\eta_{méca} . \eta_{therm}$.
+\subsubsection{Rendement mécanique}
+
+Le rendement mécanique ($\eta_{méca}$) est égal à $\frac{P_{j}}{P_{j}+P_{f}}$,
+$P_{j}$ étant la puissance de chauffe des aimants et $P_{f}$ la puissance des frottements.
+On peut donc assimiler $P_{j}$ à $\lambda_{expérimental}.v_{3}'^2$ (en négligeant donc les frottements dans les roulements de la cuve)
+et $P_{f}$ à $\lambda  ^{\prime}.v_{3}^2$. $\lambda  ^{\prime}$ étant le coefficient liant la puissance des pertes au carré de la vitesse du disque et étant mesuré de la même façon de $\lambda_{exp}$ mais en retirant le frein magnétique. Le coefficient $\lambda  ^{\prime}$ valant \num{6,5}.
+\begin{equation*}
+\eta_{méca} = \frac{P_{j}}{P_{j}+P_{f}} = \frac{\lambda_{exp} v_{3}'^2}{\lambda_{exp} v_{3}'^2+\lambda  ^{\prime}.v_{3}'^2} = \frac{\lambda_{exp}}{\lambda_{exp}+\lambda  ^{\prime}}
+\end{equation*}
+Par conséquent l'ergomètre a un rendement mécanique de $\frac{52,5}{52,5+6,5}= 0,88$.
+
+\subsubsection{Rendement thermique}
+
+Le rendement thermique ($\eta_{therm}$) est égal à~:
+\begin{equation*}
+1-\frac{H}{P_{j}},
+\end{equation*}
+$H$ étant la puissance des pertes thermiques, car~:
+\begin{equation*}
+\eta_{therm} = \frac{P_{u}}{P_{u}+H} = \frac{P_{u}}{P_{j}} = \frac{P_{j}-H}{P_{j}}= 1-\frac{H}{P_{j}},
+\end{equation*}
+avec $P_{u}$ étant la puissance réellement utile pour chauffer l'eau.
+Etant donné que les pertes thermiques dépendent de la différence de température entre l'eau et l'extérieur, on peut considérer que si l'expérience commence à température ambiante et que l'eau n'est pas chauffée trop longtemps, les pertes seront nulles et donc le rendement égal à 100 \%.
+
+Cependant, afin de voir ce que vaudrait le rendement thermique après plusieurs heures de chauffe, l'eau a été portée à 42°C pour mesurer la diminution de température avec le temps (la température ambiante valant 12°C). A cette température, les pertes sont de l'ordre de 50W, soit un rendement thermique d'environ 82\%.
+
+\subsubsection{Conclusion}
+
+Rappelons-nous du rendement total, qui dépend de $\eta_{méca}$ et $\eta_{therm}$. Tant que la température ambiante est proche de celle de l'eau, le rendement thermique est proche de 100\%, et $\eta_{total}\simeq88\%$.
+
+Au fur et à mesure que l'eau chauffe, le rendement thermique diminue, de même que le rendement total. Lorsque la différence de température entre l'eau et le milieu extérieur atteint une trentaine de degrés, $\eta_{total}\simeq72\%$.

@@ -1,0 +1,144 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\section{Théorie}
+La première étape du projet consiste à établir le cadre théorique indispensable à la compréhension des \og courants de Foucault\fg, afin de pouvoir les modéliser au mieux. Pour ce faire, il est nécessaire d'étudier les forces de Lorentz et de Laplace. Ces deux forces forment le frein magnétique, nécessaire à l'élévation de la température du conducteur par effet Joule.
+Les développements suivants sont principalement inspirés des références \cite{brown} et \cite{halti}.
+\subsection{Force de Laplace}
+
+Soit un conducteur en mouvement placé dans un champ magnétique $\vec{B}$, animé d'une vitesse $\vec{v}$. Une force s'applique sur les charges de ce conducteur (Figure~\ref{fig:lorrentz1}), selon la loi de Lorentz  :
+\begin{equation}
+	\fbox{$
+	\label{eq:lorentz}
+	\vec{f_{m}}=q\vec{v}\times\vec{B}
+	$}\, ,
+\end{equation}
+dans laquelle :
+ $[\vec{f_{m}}]=\Unit{N}$,
+ $[q] =\Unit{C}$,
+ $[\vec{v}]=\Unit{m.s^{-1}}$,
+$[\vec{B}]=\Unit{T}$.
+Ainsi, les charges du conducteur subissant une force $\vec{f_{m}}$ vers le bas, sont animées d'une vitesse $\vec{v_{i}}$ (dans le référentiel du conducteur), amenant les charges positives vers le bas, et par défaut de charges positives, les charges négatives vers le haut (Figure~\ref{fig:lorrentz2}).
+
+\begin{figure}[h]
+	\begin{minipage}[t]{6cm}
+		\centering
+		\includegraphics[width=6cm]{schema1.eps}
+		\caption{\small \label{fig:lorrentz1}Une Force s'applique sur les charges}
+	\end{minipage} \hfill
+	\begin{minipage}[t]{6cm}
+		\centering
+		\includegraphics[width=6cm]{schema2.eps}
+		\caption{\small \label{fig:lorrentz2}Les Charges descendent}
+	\end{minipage}
+\end{figure}
+
+On introduit ici la densité de courant $J$ définie par:
+\label{sec:densitecourant}
+\begin{equation}
+	\label{eq:densitecourant}
+	J=\frac{I}{S}
+\end{equation}
+avec $ J=\eta_{e}qv_{i} $ et $[J]=\Unit{A.m.^{-2}}$, $S$ étant la surface dans laquelle le courant passe ($[S]=\Unit{m^{2}}$).
+Les charges animées d'une vitesse $\vec{v}_{i}$ et plongées dans le champ magnétique $\vec{B}$ subissent à nouveau une force magnétique $\vec{f}'_{m}$ dans le sens opposé à la vitesse $\vec{v}$ du conducteur (Figure~\ref{fig:forceopp}).
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=6cm]{schema3.eps} %ou image.png, .jpeg etc.
+	\caption{\small Frein magnétique} %la légende
+	\label{fig:forceopp} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+Le conducteur subit ainsi une force $\vec{F}_{M}$ (force de Laplace), dans le même sens que $\vec{f}'_{m}$ pour contrer le mouvement initial $\vec{v}$.
+La force de Laplace peut être vue comme la force de Lorentz au niveau macroscopique.
+
+\subsection{Courants de Foucault}
+
+Malheureusement, cette force de Laplace n'existera pas indéfiniment et donc le frein disparaîtra. En effet, la polarisation du conducteur (séparation des charges positives et négatives) crée un champ électrique $\vec{E}_{s}$ (Figure~\ref{fig:foucault}), ce dernier provoquant une force $\vec{f}_{E}$ sur les charges. ($ \vec{f_{E}}=q\vec{E_{s}}) $.  Ainsi, quand $ \vec{f_{E}}+\vec{f_{m}}=0 $, les charges ne bougent plus, il n'y a donc plus de force de Laplace.
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=8cm]{schema4.eps} %ou image.png, .jpeg etc.
+	\caption{\small Circulation des courants} %la légende
+	\label{fig:foucault} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+
+Il existe cependant une solution~: il suffit de restreindre la zone du conducteur plongée dans le champ magnétique, laissant une partie du conducteur hors de ce champ (on admet ici un conducteur beaucoup plus grand que la zone d'entre-fer de l'aimant, en vert sur la Figure~\ref{fig:foucault}).\\
+
+Les charges peuvent donc circuler en dehors de la zone plongée dans le champ magnétique $\vec{B}$, sous l'influence du champ électrique $\vec{E}_{s}$ (représenté en rouge sur la Figure~\ref{fig:foucault}). Il se forme ainsi une boucle qui ramène les charges positives en haut, permettant donc les \og courants de Foucault\fg {} dans le conducteur.
+
+\subsection{Quantification de la force de freinage (frein magnétique)}
+Afin de quantifier la valeur de cette force de Laplace, il est judicieux d'établir un parallèle entre la force électrique et la force magnétique. De manière générale, la vitesse des charges $v_{i}$ est proportionnelle à la force électrique $f_{E}$ ($[f_{E}]=\Unit{N.C^{-1}}$), qui est elle-même proportionnelle au champ électrique $E$ ($v_{i}  \varpropto f_{E} \varpropto E_{s} $) Donc~:
+\begin{equation}
+	\label{eq:mue}
+	v_{i}=\mu E_{s},
+\end{equation}
+Où $\mu$ est une constante qui dépend du conducteur, appelée la mobilité des électrons, $[\mu]=\Unit{m^2.V^{-1}.s^{-1}}$. On peut alors faire le rapprochement entre la force électrique $f_{E}$ et la force magnétique $f_{m}$~:
+\begin{eqnarray*}
+f_{E}&=&qE_{s}, \\
+f_{m}&=&qvB, \label{eq:fmagn}
+\end{eqnarray*}
+($\vec{v}\times\vec{B}=vB$ car $\vec{v}$ et $\vec{B}$ sont perpendiculaires). Nous pouvons donc faire le rapprochement~:
+\begin{equation}
+	\label{eq:raprochement}
+	E_{s}=vB.
+\end{equation}
+Ce qui donne, dans \eqref{eq:mue}~:
+\begin{equation*}
+	v_{i}=\mu vB.
+\end{equation*}
+Rappelons-nous de la densité de courant $J$ vue au point \ref{sec:densitecourant} dans l'équation \ref{eq:densitecourant}, et remplaçons $v_{i}$ par son équivalent \eqref{eq:mue}~:
+
+\begin{equation*}
+	J=\eta_{e}qv_{i}=\eta_{e}q\mu E.
+\end{equation*}
+Introduisons ici $ \sigma=\eta_{e}q\mu $, la conductivité électrique ($[\sigma]=\Unit{S.m^{-1}}$) que l'on peut retrouver dans des tables~:
+\begin{eqnarray*}
+J & = & \sigma E, \\
+J & = & \sigma vB.
+\end{eqnarray*}
+Par le même rapprochement que \eqref{eq:raprochement}~:
+\begin{equation*}
+	I=S\sigma vB.
+\end{equation*}
+Schématisons la zone du conducteur placée dans l'entre-fer de l'aimant~: \\
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=7cm]{schema5.eps} %ou image.png, .jpeg etc.
+	\caption{\small Volume dans l'entre-fer} %la légende
+	\label{volume} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+
+Définissons $\vec{B}$ comme étant le champ dû à un seul aimant. Comme les aimants sont placés face à face, intéressons-nous à l'intensité induite par chaque paire d'aimants~:
+\begin{equation}
+	\label{eq:lhsvb}
+	I=2Lh\sigma vB,
+\end{equation}
+Car $S=Lh$, où $L$ est la longueur de l'entre-fer, $h$ la hauteur et $I$ l'intensité du courant ($[I]=\Unit{A}$). Reprenons notre force de Laplace qui vaut, pour chaque paire~:
+\begin{equation*}
+F_{M}=2IeB, 
+\end{equation*}
+En remplaçant $I$ par l'expression déterminée ci-dessus \eqref{eq:lhsvb}, on a, pour la force de Laplace~:
+\begin{equation*}
+F_{M}=4eLh\sigma vB^2,
+\end{equation*}
+$eLh$ étant le volume de conducteur placé dans l'entre-fer ($[eLh]=\Unit{m^3}$). La force totale sera donc~:
+\begin{equation}
+	\fbox{$
+	\label{eq:formulefinale}
+	F_{M}=4NeLh\sigma vB^2
+	$}\, , 
+\end{equation}
+$N$ étant le nombre de paire d'aimants. On arrive enfin à l'expression de la force magnétique (frein magnétique) proportionnelle à la vitesse.
+\begin{equation}
+	\fbox{$
+	\label{eq:formulelambda}
+	F_{M}=\lambda v
+	$}\, ,
+\end{equation}
+$\lambda$ étant donc constant pour une même configuration des aimants et du conducteur, et valant~:
+\begin{equation*}
+\label{eq:lambdatheo}
+\lambda=4NeLh\sigma B^2.
+\end{equation*}
+L'équation \ref{eq:formulefinale} permet de modéliser au mieux l'ergomètre. En effet, en contrôlant les différents paramètres de configuration, on peut atteindre la puissance désirée. ($P=F\, v$)\\
+L'équation \ref{eq:formulelambda}, quant à elle, permettra de comparer facilement les données expérimentales à la théorie.

@@ -1,0 +1,49 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\section{Choix de l'ergomètre}
+Pour mener à bien ce projet, l'un des points essentiels est le choix de l'ergomètre.
+En effet, la suite des événements s'articule sur cette décision.
+Dès le début, une distinction a été faite entre deux types d'ergomètres: 
+les rameurs et les cyclo-ergomètres.
+\subsection{Rameur}
+Bien qu'étant tous les deux capables de remplir le cahier des charges, les cyclo-ergomètres et les rameurs présentent beaucoup de différences en termes d'utilisation.
+Les rameurs mettent tout le corps humain à l'épreuve (y compris les muscles habituellement peu utilisés)
+et une certaine technique doit être mise au point par l'utilisateur pour qu'ils puissent être utilisés de manière efficace et sûre.\\
+
+Le rameur présente aussi certaines difficultés spécifiques, telles que la mise en place d'un siège mobile ou d'un système d'enroulement de la corde.
+Pour que le conducteur puisse tourner de façon continue, il faudrait le raccorder au reste du mécanisme par une roue libre, ce qui rajoute encore un obstacle.
+
+\subsection{Cyclo-ergomètres}
+Les cyclo-ergomètres sont en contrepartie plus simples à utiliser. Ils font uniquement appel à des muscles fort entrainés et ne nécessitent pas d'adopter une technique d'utilisation particulière. La seule partie mobile est la transmission.
+
+Plusieurs types de cyclo-ergomètres ont été étudiés~:
+\begin{itemize}
+\item les vélos \og assis \fg, 
+\item les vélos \og couchés \fg 
+\item les vélos elliptiques.
+\end{itemize}
+Le dernier type étant trop difficile à fabriquer et peu puissant, il a été éliminé assez rapidement. Les différences entre les deux autres types de vélos sont assez minimes, la principale différence étant la position de l'utilisateur. L'avantage du vélo couché est qu'il sollicite moins le coeur~\cite{erometreassis} qu'un vélo classique. En effet, l'utilisateur étant couché, le muscle cardiaque doit fournir moins d'effort pour remonter le sang des jambes qu'en position assise. Cependant, récupérer un vélo couché s'est révélé hors de prix, voire infaisable, et en fabriquer un se serait montré fort compliqué ou, dans le meilleur des cas, aurait nécessité de lourds travaux de soudure. Un autre avantage du vélo classique est son système de vitesses déjà intégré, ce qui peut permettre une forte démultiplication ainsi qu'une souplesse dans celle-ci.
+\subsection{Conclusion}
+
+\begin{table}[H]
+    \begin{tabular}{| p{4cm} | p{5.2cm} | p{5.3cm} |}
+		\hline
+        Ergomètre            & Avantage  & Désavantage \\
+		\hline 
+        Vélo elliptique &  Fait travailler bras et jambes &  Récupération impossible \newline Faible puissance\footnote{} \\
+		\hline
+        Rameur          & Utilise beaucoup de muscles \newline Récupère l'énergie élastique\footnote{}  & Fatigue trop rapidement\newline Récupération impossible  \newline Technique à apprendre \newline Beaucoup de parties mobiles  \\
+		\hline
+        Vélo couché     & Sollicite moins le coeur & Récupération impossible \\
+		\hline
+        Vélo assis      & Récupération possible \newline Mouvement continu \newline Système de vitesses  & Rendement pas maximum\footnotemark[2] \\
+		\hline
+	\end{tabular}
+	\caption{\label{tab:ergo} Récapitulatif des avantages et inconvénients des différents ergomètres}
+\end{table}
+
+
+\footnotetext[1]{L'amplitude des pédales étant trop petite, une grande force serait nécessaire pour développer un travail suffisant.}
+\footnotetext[2]{Une partie de l'énergie de compression des muscles sous le poids de l'utilisateur en marchant ou en courant est récupérée à la détente, un peu à la manière d'un élastique. En pédalant, cette énergie n'est pas récupérée.}
+
+Le choix s'est finalement porté sur un vélo assis. Son ergonomie, son système de vitesses, sa simplicité d'utilisation et de fabrication l'emportant sur les autres ergomètres.

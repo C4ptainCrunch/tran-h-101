@@ -1,0 +1,96 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\subsection{Frein magnétique}
+
+\subsubsection{Choix du conducteur}
+\label{sec:conduct}
+Les deux critères principaux dans le choix du conducteur sont sa conductivité électrique et son prix.
+Les deux métaux utilisables sont donc le cuivre et l'aluminium. En effet, ce sont ceux qui ont les plus grandes conductivités électriques mis à part l'argent et l'or qui sont beaucoup trop chers (voir le tableau~\ref{tab:conducteurs}).\\
+
+Après une recherche dans différents magasins et sites web, il a été possible de trouver du cuivre relativement bon marché. Malgré un rapport conductivité électrique/prix un peu inférieur à celui de l'aluminium, la conductivité supérieure (\num{58,0e6} \Unit{S m^{-1}} \cite{conductivite}) du cuivre permet d'utiliser une plaque plus fine et donc de perdre moins de champ magnétique, cela permettant de faire des économies sur l'achat des aimants.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|}
+	\hline Métal & Conductivité (\Unit{S.m^{-1}}) \\
+	\hline Argent & $\num{62,1e6}$ \\
+	\hline Cuivre & $\num{58,0e6}$ \\
+	\hline Or & $\num{44,2e6}$ \\
+	\hline Aluminium & $\num{36,9e6}$ \\
+	\hline
+\end{tabular}
+\caption{\label{tab:conducteurs} Conductivité électrique des matériaux les plus intéressants~\cite{conduct}}
+\end{center}
+\end{table} 
+
+\subsubsection{Diminution du champ magnétique en fonction de la distance}
+
+Les aimants ne pouvant pas être placés directement contre le conducteur, le champ magnétique à la surface de ce dernier ne correspond pas au champ magnétique à la surface de l'aimant. Il a donc fallu modéliser la perte de champ en fonction de la distance. Heureusement, le constructeur fournit une formule permettant de calculer le champ magnétique le long de l'axe de symétrie d'un cylindre (ici $z$)~\cite{densit}~:
+\begin{equation*}
+B = \frac{B_{0}}{2} \left( \frac{D+z}{\sqrt{R^2+(D+z)^2}}-\frac{z}{R^2+z^2} \right),
+\end{equation*}
+$B_{0}$ étant le champ magnétique à la surface de l'aimant et $B$ le champ au point $z$. $[B_{0}]=[B]=\Unit{T}$, le reste des variables sont en mètres.
+
+Il a été décidé de placer les aimants à 5\Unit{mm} du conducteur, cette distance étant suffisamment faible pour ne pas perdre trop d'intensité de champ magnétique et suffisamment grande pour ne pas avoir de frottement.
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=6cm]{champ.eps} %ou image.png, .jpeg etc.
+	\caption{\small Schéma d'un aimant cylindrique.} %la légende
+	\label{champ} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+%Schéma des courants de Foucault
+\subsubsection{Détermination du nombre d'aimants}
+\label{sec:nbaimants}
+La force de Laplace $F_{M}$, qui s'oppose au mouvement du conducteur est décrite par l'équation \ref{eq:formulefinale} page \pageref{eq:formulefinale}) reprise ici~:
+\begin{equation*}
+F_{M}=NeLh\sigma v4B^{2},
+\end{equation*}
+on pose $S = hL$~: surface de l'aimant. La formule devient donc~: 
+\begin{equation*}
+F_{M}=NeS\sigma v4B^{2}.
+\end{equation*}
+La puissance développée n'étant rien d'autre que la force multipliée par la vitesse, la puissance du frein magnétique peut donc s'écrire comme ceci~:
+\begin{equation}P_{M}=NeS\sigma v^{2}4B^{2},
+\label{eq:puiss}
+\end{equation}
+avec $[P_{M}]=\Unit{W}$. Remplaçons la vitesse par son expression trouvée au point \ref{sec:transm} dans l'équation \ref{eq:vitessefinale}~:
+\begin{equation*}
+P_{M} = \lambda.{v'_{3}}^2,
+\end{equation*}
+avec~:
+\begin{equation*}
+\lambda = NeS\sigma4B^{2},
+\end{equation*}
+et~:
+\begin{equation*}
+v'_{3} = \omega_{1}.\left( \frac{r_{1}}{r_{3}}\right) .\left( \frac{r'_{2}}{r_{2}}\right) .r'_{3}.
+\end{equation*}
+
+Afin de pouvoir calculer le nombre d'aimants, il faut fixer le plus de variables possible. La vitesse du conducteur $v_{3}'$ est connue car les rapports $\frac{r_{1}}{r_{3}}$ et $\frac{r'_{2}}{r_{2}}$ sont connus et que $\omega_{1}$ et $r_{3}'$ sont connus. Comme spécifié dans la section \ref{sec:conduct}, le cuivre est utilisé, ce qui fixe $\sigma = \num{59,6e6}$ \Unit{S m^{-1}}.
+Le rayon du conducteur est fixé $r'_{3}$ à $\num{0,07} \Unit{m}$ (arbitrairement).
+
+Le reste des variables dépendant des aimants, il reste à déterminer ceux-ci. Trois différents modèles d'aimants ont alors été envisagés (Voir tableau \ref{ta:aimants}). Pour trouver $N$, il a suffit d'injecter les différentes caractéristiques des aimants ainsi que les constantes dans l'équation \ref{eq:puiss} avec $P = \num{250}\Unit{W}$.
+\begin{table}[htdp]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline Référence & Forme & Diamètre & Hauteur & Rémanence \\
+	\hline S-15-08N & disque & 15mm & 8mm & 10,8T \\
+	\hline S-25-07N & disque & 25mm & 7mm & 10,8T \\
+	\hline S-25-05N & disque & 25mm & 5mm & 10,8T \\
+	\hline
+\end{tabular}
+\caption{\label{ta:aimants} Différents types d'aimants et leurs caractéristiques \cite{supermagnette}}
+\end{center}
+\label{defaulttable}
+\end{table} 
+
+Pour le premier type d'aimants, cette puissance est atteinte avec 6 paires d'aimants, pour le deuxième type d'aimants, 2 paires d'aimants sont nécessaires pour atteindre les \num{250}\Unit{W} et finalement pour le troisième type d'aimants, 3 paires d'aimants sont nécessaires.
+
+L'utilisation des deuxièmes et troisièmes types d'aimants a été écartée car, en cas de soucis, par exemple si le frein magnétique est trop faible ou trop fort, l'ajout ou le retrait d'un aimant aurait été nécessaire, ce qui doublerait ou réduirait de moitié le champ magnétique, ce qui n'est évidemment pas une solution.
+
+Le premier type d'aimants a donc été choisi. Vu que plus de paires sont nécessaires à obtenir la puissance demandée, le nombre d'aimants est plus facilement réglable en cas de problème.
+
+Grâce à toutes ces données, il est possible de calculer $\lambda_{théorique}$ défini dans l'équation~\eqref{eq:lambdatheo}~:
+\begin{equation*}
+\lambda_{théorique}=4NeLh\sigma B^2 =  \num{34,7}
+\end{equation*}

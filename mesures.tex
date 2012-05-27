@@ -1,0 +1,66 @@
+%!TEX encoding = IsoLatin
+%!TEX root = ./rapport.tex
+\subsection{Mesures}
+Ayant trouvé le lambda théorique (section \ref{sec:nbaimants}), il faut maintenant trouver le lambda expérimental afin de calculer les rendements et de vérifier que nos pertes ne sont pas trop importantes.
+Lambda est défini comme liant la puissance au carré de la vitesse au bord du disque de cuivre. (Voir équation \ref{eq:formulelambda})
+\begin{equation*}
+P=\lambda v_{3}'^2
+\end{equation*}
+Afin de déterminer $\lambda$, il faut passer par la fabrication d'un appareil de mesure permettant de développer une certaine puissance. Il ne reste donc plus qu'a mesurer la vitesse du conducteur pour déterminer~$\lambda$.
+
+\subsubsection{Dispositif de mesure}
+\label{sec:mesure}
+Afin de développer une puissance mesurable, il suffit de laisser tomber des masses dans le champ gravitationnel, pendues à une corde enroulée autour d'un cylindre centré sur l'axe sur lequel se trouve le conducteur. L'axe étant à moins d'un mètre du sol, il a été nécessaire d'utiliser un poteau d'environ 2 mètres de haut afin de faire passer la corde par une poulie fixée au sommet, et ainsi allonger le temps de chute des poids.
+Ainsi, en considérant que la vitesse de chute est constante (en ne comptant donc pas les premiers instant de chute), la puissance développée par la masse n'est autre que~:
+\begin{equation*}
+P=m_{poids}\,g\,v_{poids}
+\end{equation*}
+
+\begin{figure}[h]
+	\begin{minipage}[t]{6cm}
+		\centering
+		\includegraphics[height=6cm]{photos/appmesure.jpg}
+		\caption{\small \label{fig:enrouleur}Enrouleur}
+	\end{minipage} \hfill
+	\begin{minipage}[t]{6cm}
+		\centering
+		\includegraphics[height=6cm]{photos/appmesure2.jpg}
+		\caption{\small \label{fig:appmesure}Appareil de mesure}
+	\end{minipage}
+\end{figure}
+
+
+
+
+\subsubsection{Expérience}
+Ainsi, en connaissant la longueur de la chute du poids et en mesurant le temps de chute, il est possible de mesurer sa vitesse. Ensuite, en répétant l'expérience plusieurs fois avec des masses différentes, on obtient facilement une grande plage de valeurs afin d'avoir une valeur plus précise du lambda expérimental.
+
+
+\subsubsection{Calcul du lambda expérimental}
+En considérant qu'il n'y a pas de pertes entre le poids et le disque (l'axe du conducteur étant soutenu par des roulements à bille), on peut considérer que la puissance développée par le poids est égale à celle du frein magnétique. La puissance du frein devient donc~:
+\begin{equation*}
+P_{frein} = m_{poids}.g.v_{poids}.
+\end{equation*}
+Pour obtenir le lambda il ne reste donc qu'à diviser ce résultat par le carré de la vitesse du bord du disque. Pour trouver cette vitesse, il est d'abord indispensable de trouver la vitesse angulaire de l'axe. Celle-ci est égale à la vitesse du poids divisée par le rayon de l'enrouleur~:
+\begin{equation*}
+\omega_{3} = \frac{v_{poids}}{r_{enrouleur}}.
+\end{equation*}
+Pour finalement trouver la vitesse du bord du disque de cuivre, il suffit alors de multiplier cette vitesse angulaire par le rayon du disque~:
+\begin{equation*}
+v_{disque} = \omega_{3} \, r_{3}'.
+\end{equation*}
+En divisant finalement la puissance développée par le poids par le carré de la vitesse du bord du disque de cuivre, le $\lambda_{expérimental}$ vaut~:
+\begin{equation*}
+\lambda_{expérimental} = \frac{P_{poids}}{v_{3}'^2}
+= \frac{m_{poids}.g.v_{poids}}{(\frac{v_{poids}}{r_{enrouleur}} . r_{3}')^2}.
+\end{equation*}
+Ceci dit, le  $ \lambda_{expérimental}$ n'est rien d'autre que la pente du graphe de la puissance en fonction de la vitesse au carré. En portant les différentes mesures effectuées et en traçant la courbe de tendance des points, on obtient un $ \lambda_{expérimental}= \num{52,5}$. 
+
+\begin{figure}[H] %on ouvre l'environnement figure
+	\centering
+	\includegraphics[width=16cm]{graphes/lambda.jpg} %ou image.png, .jpeg etc.
+	\caption{\small Graphe de la puissance en fonction de la vitesse au carré} %la légende
+	\label{fig:lambda} %l'étiquette pour faire référence à cette image
+\end{figure} %on ferme l'environnement figure
+
+Ce résultat est relativement proche de celui obtenu théoriquement~: ($\lambda_{théorique} = \num{34,7}$). La différence s'explique par les pertes dues aux frottements et par les imprécisions de modélisation du champ magnétique.
